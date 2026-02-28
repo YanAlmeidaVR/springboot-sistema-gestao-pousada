@@ -31,7 +31,7 @@ O foco do projeto é **modelar regras reais de negócio**, seguindo boas prátic
 
 ---
 
-## ✨ Principais Features
+## Principais Features
 
 - 👥 **Gestão de Hóspedes** — Cadastro completo com validação de CPF
 - 🛏️ **Controle de Quartos** — Tipos, preços e status (disponível, ocupado, manutenção)
@@ -45,7 +45,7 @@ O foco do projeto é **modelar regras reais de negócio**, seguindo boas prátic
 
 ---
 
-## 🚀 Instalação
+## Instalação
 
 ### Pré-requisitos
 
@@ -93,7 +93,7 @@ mvn spring-boot:run
 
 ---
 
-## 🛠️ Stack Tecnológica
+## Stack Tecnológica
 
 | Tecnologia | Versão | Descrição |
 |------------|--------|-----------|
@@ -111,7 +111,7 @@ mvn spring-boot:run
 
 ---
 
-## 🔌 Endpoints
+## Endpoints
 
 ### 👥 Hóspedes (`/aconchega/hospedes`)
 
@@ -236,7 +236,7 @@ GET /aconchega/reservas/receita?inicio=2026-01-01&fim=2026-01-31
 
 ---
 
-## 🏗️ Arquitetura
+## Arquitetura
 
 ### Estrutura em Camadas
 
@@ -654,7 +654,7 @@ public class GlobalExceptionHandler {
 
 ---
 
-## 🚀 Melhorias Futuras
+## Melhorias Futuras
 
 ### Prioridade Alta
 - [ ] **Autenticação e Autorização** (Spring Security + JWT)
