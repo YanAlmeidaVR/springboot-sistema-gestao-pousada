@@ -121,8 +121,14 @@ class ReservaServiceTest {
         reserva.setStatusReserva(StatusReserva.ATIVA);
         reserva.setStatusPagamento(StatusPagamento.PAGO);
         reserva.setStatusChave(StatusChave.DEVOLVIDA);
+        reserva.setNumeroQuarto(101);
+
+        QuartoModel quarto = new QuartoModel();
+        quarto.setNumeroQuarto(101);
+        quarto.setQuartoStatus(QuartoStatus.OCUPADO);
 
         when(reservaRepository.findById(1L)).thenReturn(Optional.of(reserva));
+        when(quartoRepository.findByNumeroQuarto(101)).thenReturn(Optional.of(quarto));
         when(reservaRepository.save(any())).thenAnswer(invocation -> invocation.getArgument(0));
 
         // When
@@ -130,6 +136,7 @@ class ReservaServiceTest {
 
         // Then
         assertEquals(StatusReserva.FINALIZADA, response.getStatusReserva());
+        assertEquals(QuartoStatus.DISPONIVEL, quarto.getQuartoStatus());
         verify(reservaRepository).save(reserva);
     }
 
@@ -153,8 +160,14 @@ class ReservaServiceTest {
         // Given
         ReservaModel reserva = new ReservaModel();
         reserva.setStatusReserva(StatusReserva.ATIVA);
+        reserva.setNumeroQuarto(101);
+
+        QuartoModel quarto = new QuartoModel();
+        quarto.setNumeroQuarto(101);
+        quarto.setQuartoStatus(QuartoStatus.OCUPADO);
 
         when(reservaRepository.findById(1L)).thenReturn(Optional.of(reserva));
+        when(quartoRepository.findByNumeroQuarto(101)).thenReturn(Optional.of(quarto));
         when(reservaRepository.save(any())).thenAnswer(invocation -> invocation.getArgument(0));
 
         // When
@@ -162,6 +175,7 @@ class ReservaServiceTest {
 
         // Then
         assertEquals(StatusReserva.CANCELADA, response.getStatusReserva());
+        assertEquals(QuartoStatus.DISPONIVEL, quarto.getQuartoStatus());
         verify(reservaRepository).save(reserva);
     }
 
